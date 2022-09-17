@@ -10,18 +10,18 @@ import { fetchApi } from "../utils/fetchApi";
 
 const VideoDetail = () => {
     const { id } = useParams();
-    const options = {
-        method: "GET",
-        url: "https://youtube-v31.p.rapidapi.com/videos",
-        params: { part: "snippet,statistics", id: id },
-        headers: {
-            "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
-            "X-RapidAPI-Host": "youtube-v31.p.rapidapi.com",
-        },
-    };
     const [videoDetail, setVideoDetail] = useState(null);
     const [videos, setVideos] = useState([]);
     useEffect(() => {
+        const options = {
+            method: "GET",
+            url: "https://youtube-v31.p.rapidapi.com/videos",
+            params: { part: "snippet,statistics", id: id },
+            headers: {
+                "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
+                "X-RapidAPI-Host": "youtube-v31.p.rapidapi.com",
+            },
+        };
         axios
             .request(options)
             .then(({ data }) => {
