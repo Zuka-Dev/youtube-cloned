@@ -11,7 +11,7 @@ const options = {
 
 export const fetchApi = async (url) => {
     const { data } = await axios.get(
-        `${process.env.REACT_APP_BASE_URL}/${url}`,
+        `https://youtube-v31.p.rapidapi.com/${url}`,
         options
     );
     return data;
